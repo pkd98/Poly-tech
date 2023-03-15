@@ -1,5 +1,5 @@
 package Exam;
 
-public abstract class IntangibleAsset extends Asset{
+public abstract class IntangibleAsset extends Asset {
 
 }
