@@ -12,7 +12,7 @@ public class PoisonKinoko extends Kinoko{
         super.attack(hero);
         if(cnt != 0) {
             System.out.println("추가로, 독 포자를 살포했다!");
-            int damage = (int) (hero.getHp() * 0.25);
+            int damage = (int) (hero.getHp() * 0.2);
             hero.setHp(hero.getHp() - damage);
             System.out.println(damage + "포인트의 데미지");
             cnt--;
