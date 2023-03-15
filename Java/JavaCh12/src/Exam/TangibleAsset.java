@@ -25,5 +25,4 @@ public abstract class TangibleAsset extends Asset{
     public String getColor() {
         return this.color;
     }
-    
 }
