@@ -60,6 +60,7 @@ public class Book implements Cloneable, Comparable<Book> {
     @Override
     public int compareTo(Book o) {
         // TODO Auto-generated method stub
+        //return this.publishDate.compareTo(o.publishDate);
         if (this.publishDate.getTime() < o.publishDate.getTime()) {
             return -1;
         } else if (this.publishDate.getTime() > o.publishDate.getTime()) {
