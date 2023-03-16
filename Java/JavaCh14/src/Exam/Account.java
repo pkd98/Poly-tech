@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Account {
     private String accountNumber;
     private int balance;
-    
+
     public Account(String accountNumber, int balance) {
         this.accountNumber = accountNumber;
         this.balance = balance;
@@ -32,7 +32,4 @@ public class Account {
         Account other = (Account) obj;
         return Objects.equals(accountNumber.trim(), other.accountNumber.trim());
     }
-    
-    
-
 }
