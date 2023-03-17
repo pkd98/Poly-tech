@@ -25,7 +25,7 @@ public class StrongBox<T> {
                 this.usedCount = 1000000;
         }
     }
-    
+
     public StrongBox(KeyType keyType) {
         this(null, keyType);
     }
