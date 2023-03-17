@@ -1,9 +1,10 @@
 package Exam;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Objects;
 
-public class Book implements Cloneable, Comparable<Book> {
+public class Book implements Cloneable, Comparable<Book>, Comparator<Book> {
     private String title;
     private Date publishDate;
     private String comment;
@@ -79,5 +80,11 @@ public class Book implements Cloneable, Comparable<Book> {
     @Override
     public String toString() {
         return "Book [title=" + title + "]";
+    }
+
+    @Override
+    public int compare(Book o1, Book o2) {
+        // TODO Auto-generated method stub
+        return Long.compare(o1.publishDate.getTime(), o2.publishDate.getTime());
     }
 }
