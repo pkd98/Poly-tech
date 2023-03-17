@@ -15,7 +15,7 @@ public class Main {
         Date date3 = new Date(1223333333333L);
         Date date4 = new Date(1224444444444L);
         Date date5 = new Date(1225555555555L);
-
+        
         Book javaBook1 = new Book("자바 책", date1, "좋은 책"); // 책이름과 출판일이 같음
         Book javaBook2 = new Book("자바 책", date1, "조아용");  // 책이름과 출반일이 같음
         Book javaBook3 = new Book("자바 책", date2, "좋은 책"); // 출판일이 다름

@@ -21,7 +21,7 @@ public class Main {
 
         // 5. Calendar 의 날짜정보를 Date 형으로 변환한다
         Date answerDate = calendar.getTime();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("서기yyyy년MM월dd일");
 
         // 6. SimpleDateFormat 을 이용하여 Date 인스턴스의 내용을 표시한다
         String answerDateString = format.format(answerDate);
