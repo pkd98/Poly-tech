@@ -13,9 +13,9 @@ public class NoiseEvaluation implements Evaluation {
     @Override
     public String evaluate() {
         if (evaluationWay.calculate()) {
-            return noise.Silent();
+            return noise.silent();
         } else {
-            return noise.Noisy();
+            return noise.noisy();
         }
     }
 }

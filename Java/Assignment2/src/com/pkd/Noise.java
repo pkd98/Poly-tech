@@ -7,11 +7,11 @@ package com.pkd;
 public class Noise {
     public Noise() {}
 
-    public String Noisy() {
+    public String noisy() {
         return "noisy";
     }
 
-    public String Silent() {
+    public String silent() {
         return "silent";
     }
 }
