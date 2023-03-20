@@ -13,12 +13,10 @@ public class Main2 {
         Department department = new Department();
         department.name = "총무부";
         department.leader = employee;
-
         try (FileOutputStream fos = new FileOutputStream("company.dat")) {
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(department);
             oos.flush();
-            oos.close();
 
         } catch (Exception e) {
             e.printStackTrace();
