@@ -1,6 +1,6 @@
 package com.pkd.exam;
 
-public class DownCounter {
+public class DownCounter implements Counter{
     private int count = 0;
     
     public int getCount() {
@@ -10,8 +10,9 @@ public class DownCounter {
     public void setCount(int count) {
         this.count = count;
     }
-
-    public void decrease() {
+    
+    @Override
+    public void count() {
         count--;
     }
 }

@@ -1,6 +1,6 @@
 package com.pkd.exam;
 
-public class Counter {
+public class UpCounter implements Counter{
     private int count = 0;
     
     public int getCount() {
@@ -11,7 +11,8 @@ public class Counter {
         this.count = count;
     }
 
-    public void increase() {
+    @Override
+    public void count() {
         count++;
     }
 }
