@@ -47,6 +47,7 @@ public class SaveUtil {
                     
                     Book book = new Book(bookId, name, newReleaseDate, rentState);
                     BookUtil.bookList.add(book);
+                    Book.autoIncreaseBookId = bookId + 1;
                 }
                 
             } catch (IOException e) {
@@ -127,6 +128,7 @@ public class SaveUtil {
                     
                     Rent rent = new Rent(rentId, memberId, bookId, rentExtentionState, newReturnDate);
                     RentUtil.rentList.add(rent);
+                    Rent.autoIncreaseRentId = rentId + 1;
                 }
                 
             } catch (IOException e) {

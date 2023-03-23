@@ -1,2 +1,4 @@
 bookId,name,releaseDate,rentState
-0,1,Sat Nov 11 00:00:00 KST 1111,false
+0,자바,Thu Oct 05 00:00:00 KST 2000,false
+1,테스트,Mon Oct 01 00:00:00 KST 2001,false
+2,파이썬,Sun Nov 21 00:00:00 KST 2010,false
