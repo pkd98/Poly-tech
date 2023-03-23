@@ -1,8 +1,14 @@
 package com.pkd.mode;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 import com.pkd.book.Book;
 import com.pkd.book.BookUtil;
 import com.pkd.member.Member;
@@ -13,6 +19,125 @@ import com.pkd.rent.RentUtil;
 // 파일 입출력 기능을 메서드로 제공
 public class SaveUtil {
 
+    public static void csvToBook() {
+        if (SaveManager.saveMode == SaveMode.NO_SAVE) {
+            return;
+        } else {
+            String csvFile = "book.csv";
+            String line = "";
+            String csvSplitBy = ",";
+
+            try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+                
+                // 첫 번째 라인은 필드명이므로 읽어서 처리하지 않음
+                br.readLine();
+                
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(csvSplitBy);
+                    
+                    int bookId = Integer.parseInt(data[0]);
+                    String name = data[1];
+                    String releaseDate = data[2];
+                    boolean rentState = Boolean.parseBoolean(data[3]);
+
+                    
+                    // SimpleDateFormat 객체 생성
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+                    Date newReleaseDate = dateFormat.parse(releaseDate);               
+                    
+                    Book book = new Book(bookId, name, newReleaseDate, rentState);
+                    BookUtil.bookList.add(book);
+                }
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public static void csvToMember() {
+        if (SaveManager.saveMode == SaveMode.NO_SAVE) {
+            return;
+        } else {
+            String csvFile = "member.csv";
+            String line = "";
+            String csvSplitBy = ",";
+
+            try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+                
+                // 첫 번째 라인은 필드명이므로 읽어서 처리하지 않음
+                br.readLine();
+                
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(csvSplitBy);
+                    
+                    String id = data[0];
+                    String name = data[1];
+                    String signUpDay = data[2];
+                    String address = data[3];
+                    String phoneNumber = data[4];
+                    String birthDay = data[5];
+                    
+                    // SimpleDateFormat 객체 생성
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+                    Date signUpDayDate = dateFormat.parse(signUpDay);
+                    Date birthDayDate = dateFormat.parse(birthDay);
+                    
+                    Member member = new Member(id, name, signUpDayDate, address, phoneNumber, birthDayDate);
+                    MemberUtil.memberList.add(member);
+                }
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public static void csvToRent() {
+        if (SaveManager.saveMode == SaveMode.NO_SAVE) {
+            return;
+        } else {
+            String csvFile = "rent.csv";
+            String line = "";
+            String csvSplitBy = ",";
+
+            try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+                
+                // 첫 번째 라인은 필드명이므로 읽어서 처리하지 않음
+                br.readLine();
+                
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(csvSplitBy);
+                    
+                    int rentId = Integer.parseInt(data[0]);
+                    String memberId = data[1];
+                    int bookId = Integer.parseInt(data[2]);
+                    boolean rentExtentionState = Boolean.getBoolean(data[3]);
+                    String returnDate = data[4];
+                    
+                    // SimpleDateFormat 객체 생성
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
+                    Date newReturnDate = dateFormat.parse(returnDate);
+                    
+                    Rent rent = new Rent(rentId, memberId, bookId, rentExtentionState, newReturnDate);
+                    RentUtil.rentList.add(rent);
+                }
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+    
     public static void bookToCsv() {
         if (SaveManager.saveMode == SaveMode.NO_SAVE) {
             return;
@@ -58,10 +183,12 @@ public class SaveUtil {
 
                 while (iterator.hasNext()) {
                     Member member = iterator.next();
-                    writer.append(member.getId()).append(",").append(member.getName()).append(",")
-                            .append(String.valueOf(member.getSignUpDay()))
-                            .append(member.getAddress()).append(",").append(member.getPhoneNumber())
-                            .append(",").append(String.valueOf(member.getBirthDay())).append(",")
+                    writer.append(member.getId()).append(",")
+                            .append(member.getName()).append(",")
+                            .append(String.valueOf(member.getSignUpDay())).append(",")
+                            .append(member.getAddress()).append(",")
+                            .append(member.getPhoneNumber()).append(",")
+                            .append(String.valueOf(member.getBirthDay())).append(",")
                             .append("\n");
                 }
 

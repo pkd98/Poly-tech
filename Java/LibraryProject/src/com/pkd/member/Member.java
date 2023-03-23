@@ -26,6 +26,7 @@ public class Member {
 
     public Member() {}
 
+
     public String getId() {
         return id;
     }

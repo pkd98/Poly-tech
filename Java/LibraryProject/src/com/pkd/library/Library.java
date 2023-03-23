@@ -34,6 +34,9 @@ public class Library {
 
                 case 2:
                     // 일반 저장 모드 (저장 기능 On)
+                    SaveUtil.csvToBook();
+                    SaveUtil.csvToMember();
+                    SaveUtil.csvToRent();
                     SaveManager saveManager2 = new SaveManager(SaveMode.YES_SAVE);
                     currentMode = "==== KOPO-PKD 도서관리 시스템 ====";
                     control = false;

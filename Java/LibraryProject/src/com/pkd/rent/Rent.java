@@ -14,7 +14,16 @@ public class Rent {
     private Date returnDate; // 반납일
 
     public static int autoIncreaseRentId = 0;
-
+    
+    public Rent(int rentId, String memberId, int bookId, boolean rentExtentionState,
+            Date returnDate) {
+        super();
+        this.rentId = rentId;
+        this.memberId = memberId;
+        this.bookId = bookId;
+        this.rentExtentionState = rentExtentionState;
+        this.returnDate = returnDate;
+    }
 
     public Rent(String memberId, int bookId) {
         this.rentId = autoIncreaseRentId++;
@@ -27,6 +36,12 @@ public class Rent {
         calendar.add(Calendar.DATE, 14);
         this.returnDate = calendar.getTime();
     }
+
+
+
+
+
+
 
     public int getRentId() {
         return rentId;

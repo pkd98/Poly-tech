@@ -20,8 +20,11 @@ public class Book {
         this.rentState = false;
     }
 
-    Book() {
-
+    public Book(int bookId, String name, Date newReleaseDate, boolean rentState) {
+        this.bookId = bookId;
+        this.name = name;
+        this.releaseDate = newReleaseDate;
+        this.rentState = rentState;
     }
     public boolean getRentState() {
         return rentState;
