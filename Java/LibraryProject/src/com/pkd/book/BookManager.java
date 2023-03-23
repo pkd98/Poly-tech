@@ -134,6 +134,7 @@ public class BookManager {
                 int bookIdInput = sc.nextInt();
                                     
                 // 어떤 회원이 대출했는지 선택
+                MemberUtil.selectMember();
                 System.out.print("대출 회원 ID : ");
                 String memberIdInput = sc.next();
                 

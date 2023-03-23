@@ -4,8 +4,9 @@ import java.util.Scanner;
 import com.pkd.book.BookManager;
 import com.pkd.member.MemberManager;
 import com.pkd.member.MemberUtil;
-import com.pkd.utils.SaveMethod;
-import com.pkd.utils.SaveUtil;
+import com.pkd.mode.SaveManager;
+import com.pkd.mode.SaveMode;
+import com.pkd.mode.SaveUtil;
 
 public class Library {
 
@@ -26,14 +27,14 @@ public class Library {
             switch (modeInput) {
                 case 1:
                     // 테스트 모드 설정 (저장 기능 Off)
-                    SaveUtil.saveMethod = SaveMethod.NO_SAVE; 
+                    SaveManager saveManager1 = new SaveManager(SaveMode.NO_SAVE);
                     currentMode = "===========테스트 모드============";
                     control = false;
                     break;
 
                 case 2:
                     // 일반 저장 모드 (저장 기능 On)
-                    SaveUtil.saveMethod = SaveMethod.YES_SAVE; 
+                    SaveManager saveManager2 = new SaveManager(SaveMode.YES_SAVE);
                     currentMode = "==== KOPO-PKD 도서관리 시스템 ====";
                     control = false;
                     break;
@@ -66,7 +67,9 @@ public class Library {
                 case 3: // 종료
                     System.out.println("프로그램을 종료합니다.");
                     // csv 저장 코드 추가
-                    
+                    SaveUtil.bookToCsv();
+                    SaveUtil.memberToCsv();
+                    SaveUtil.rentToCsv();
                     System.exit(1);
                     break;
 

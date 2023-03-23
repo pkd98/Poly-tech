@@ -23,7 +23,9 @@ public class Book {
     Book() {
 
     }
-
+    public boolean getRentState() {
+        return rentState;
+    }
     public int getBookId() {
         return bookId;
     }

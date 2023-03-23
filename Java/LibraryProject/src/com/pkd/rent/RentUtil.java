@@ -1,8 +1,8 @@
 package com.pkd.rent;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import com.pkd.book.BookUtil;
@@ -14,16 +14,19 @@ public class RentUtil {
         // 대출 정보 클래스
         Rent rent = new Rent(memberIdInput, bookIdInput);
         rentList.add(rent);
+        rentSort(rentList);
     }
 
     public static void bookReturn(Rent rent) { // 도서 반납
         // 해당 도서 대출 상대 false
         for (com.pkd.book.Book book : BookUtil.bookList) {
             if (book.getBookId() == rent.getBookId()) {
-                book.setRentState(false); 
+                book.setRentState(false);
             }
         }
         rentList.remove(rent); // 도서 반납 완료
+        rentSort(rentList);
+
     }
 
     public static void extend(Rent rent) { // 대출 연장
@@ -47,4 +50,14 @@ public class RentUtil {
         }
         System.out.println("===============================");
     }
+
+    public static void rentSort(List<Rent> list) { // 반납일 기준으로 오름차순
+        list.sort(new Comparator<Rent>() {
+            @Override
+            public int compare(Rent o1, Rent o2) {
+                return o1.getReturnDate().compareTo(o2.getReturnDate());
+            }
+        });
+    }
+
 }

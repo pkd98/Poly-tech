@@ -102,25 +102,6 @@ public class BookUtil {
 
     }
 
-    public static void selectImpossibleBooks() { // 대출 목록 표시 --> 대출 장부
-//        List<Book> impossibleBookList = new ArrayList<>();
-//        // 대출 가능한 책 리스트 넣기
-//        for (Book book : bookList) {
-//            if (book.isRentState() != false) {
-//                impossibleBookList.add(book);
-//            }
-//        }
-//        // 최근 출간 순서대로 정렬
-//        bookSort(impossibleBookList);
-//        
-//        // 출력
-//        System.out.println("======== 대출 불가 도서 ========");
-//        for (Book book : impossibleBookList) {
-//            System.out.println(book.toString());
-//        }
-//        System.out.println("===============================");
-    }
-
     public static void bookSort(List<Book> list) { // 최근 출간 순서대로 책 정렬
         list.sort(new Comparator<Book>() {
             @Override
