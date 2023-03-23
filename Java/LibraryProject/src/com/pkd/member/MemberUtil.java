@@ -7,8 +7,8 @@ import com.pkd.book.Book;
 
 public class MemberUtil {
 
-    static List<Member> memberList = new ArrayList<>(); // 회원 목록
-    static List<Member> memberStack = new ArrayList<>(1); // 삭제 취소를 위한 stack
+    public static List<Member> memberList = new ArrayList<>(); // 회원 목록
+    public static List<Member> memberStack = new ArrayList<>(1); // 삭제 취소를 위한 stack
 
     public MemberUtil() {}
 

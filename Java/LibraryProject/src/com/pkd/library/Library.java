@@ -65,6 +65,8 @@ public class Library {
                     
                 case 3: // 종료
                     System.out.println("프로그램을 종료합니다.");
+                    // csv 저장 코드 추가
+                    
                     System.exit(1);
                     break;
 

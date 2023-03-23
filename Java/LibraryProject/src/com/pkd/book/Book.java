@@ -10,17 +10,18 @@ public class Book {
     private Date releaseDate; // 출간일
     private boolean rentState; // 반납 여부
 
-    public static int autoIncreaseId = 0;
+    public static int autoIncreaseBookId = 0;
+
     public Book(String name, Date releaseDate) {
         super();
         this.name = name;
-        this.bookId = autoIncreaseId++;
+        this.bookId = autoIncreaseBookId++;
         this.releaseDate = releaseDate;
         this.rentState = false;
     }
 
-    Book(){
-        
+    Book() {
+
     }
 
     public int getBookId() {
@@ -56,13 +57,12 @@ public class Book {
     }
 
     public static int getAutoIncreaseId() {
-        return autoIncreaseId;
+        return autoIncreaseBookId;
     }
 
     public static void setAutoIncreaseId(int autoIncreaseId) {
-        Book.autoIncreaseId = autoIncreaseId;
+        Book.autoIncreaseBookId = autoIncreaseId;
     }
-
 
     @Override
     public int hashCode() {
@@ -85,7 +85,7 @@ public class Book {
     @Override
     public String toString() {
         String convertReleaseDate = Utils.dateToString(releaseDate);
-        System.out.println();
-        return "ID : " + bookId + ", " + "도서명 : " + name + ", " + "출간일 : " + convertReleaseDate + ", " + "상태 : " + ((rentState == true) ? "대출 불가능" : "대출 가능");
+        return "ID : " + bookId + ", " + "도서명 : " + name + ", " + "출간일 : " + convertReleaseDate
+                + ", " + "상태 : " + ((rentState == true) ? "대출 불가능" : "대출 가능");
     }
 }

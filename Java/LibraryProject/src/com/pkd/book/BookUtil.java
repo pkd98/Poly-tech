@@ -8,8 +8,8 @@ import com.pkd.utils.Utils;
 
 public class BookUtil {
 
-    static List<Book> bookList = new ArrayList<>(); // 도서 목록
-    static List<Book> bookStack = new ArrayList<>(1); // 삭제 취소를 위한 stack
+    public static List<Book> bookList = new ArrayList<>(); // 도서 목록
+    public static List<Book> bookStack = new ArrayList<>(1); // 삭제 취소를 위한 stack
 
     public BookUtil() {}
 
@@ -60,22 +60,6 @@ public class BookUtil {
             System.out.println("잘못된 입력 입니다.");
     }
 
-    public static void bookRent() { // 도서 대출
-
-        // 어떤 도서
-        
-        // 어떤 회원이 대출했는지 선택
-
-        // 도서 rent 상태 true 처리
-
-        // 대출 정보 클래스
-
-
-    }
-
-    public static void bookReturn() { // 도서 반납
-
-    }
     
     public static void bookUndo() {
         if (bookStack.size() == 0) {

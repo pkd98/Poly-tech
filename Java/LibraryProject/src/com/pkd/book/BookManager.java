@@ -2,6 +2,10 @@ package com.pkd.book;
 
 import java.util.Date;
 import java.util.Scanner;
+import com.pkd.member.Member;
+import com.pkd.member.MemberUtil;
+import com.pkd.rent.Rent;
+import com.pkd.rent.RentUtil;
 import com.pkd.utils.Utils;
 
 public class BookManager {
@@ -17,9 +21,8 @@ public class BookManager {
             System.out.println(" 2. 도서 등록");
             System.out.println(" 3. 도서 수정");
             System.out.println(" 4. 도서 삭제");
-            System.out.println(" 5. 도서 대출");
-            System.out.println(" 6. 도서 반납");
-            System.out.println(" 7. 도서 삭제 취소");
+            System.out.println(" 5. 도서 대출 관련");
+            System.out.println(" 6. 도서 삭제 취소");
             System.out.println("====================================");
             int bookOptionInput = sc.nextInt();
 
@@ -68,14 +71,11 @@ public class BookManager {
                     BookUtil.bookRemove(deleteBookNumber);
                     break;
 
-                case 5: // 도서 대출
-                    BookUtil.bookRent();
+                case 5: // 도서 대출 관련
+                    rents();
                     break;
                 
-                case 6:
-                    BookUtil.bookReturn();
-                    break;
-                case 7:
+                case 6: // 도서 삭제 취소
                     BookUtil.bookUndo();
                     break;
                 default:
@@ -89,7 +89,6 @@ public class BookManager {
         System.out.println(" 0. 뒤로");
         System.out.println(" 1. 도서 전체 조회");
         System.out.println(" 2. 대출 가능한 도서 조회");
-        System.out.println(" 3. 대출 불가능 도서 조회");
         System.out.println("===============================");
         int selectInput = sc.nextInt();
 
@@ -104,8 +103,108 @@ public class BookManager {
             case 2:
                 BookUtil.selectPossibleBooks();
                 break;
-            case 3:
-                BookUtil.selectImpossibleBooks();
+            default:
+                System.out.println("잘못된 입력");
+                break;
+        }
+    }
+    
+    public void rents() {
+        System.out.println("========== 대출 관련 ==========");
+        System.out.println(" 0. 뒤로");
+        System.out.println(" 1. 대출중 도서 조회");
+        System.out.println(" 2. 도서 대출");
+        System.out.println(" 3. 도서 대출 연장");
+        System.out.println(" 4. 도서 반납");
+        System.out.println("===============================");
+        int selectInput = sc.nextInt();
+
+        switch (selectInput) {
+            case 0:
+                return;
+
+            case 1: // 대출중 도서 조회
+                RentUtil.selectRent();
+                break;
+
+            case 2: // 도서 대출
+                // 대출할 도서 선택
+                BookUtil.selectPossibleBooks();
+                System.out.print("대출할 도서 ID : ");
+                int bookIdInput = sc.nextInt();
+                                    
+                // 어떤 회원이 대출했는지 선택
+                System.out.print("대출 회원 ID : ");
+                String memberIdInput = sc.next();
+                
+                // 유효성 검사
+                boolean checkMemberId = false;
+                for(Member member : MemberUtil.memberList) {
+                    if (!member.getId().equals(memberIdInput)) {
+                        System.out.println("잘못된 회원ID입니다.");
+                        checkMemberId = true;
+                    }
+                }
+                if (checkMemberId == true) {
+                    break;
+                }
+
+                // 해당 도서 rent 상태 true 처리
+                boolean check = false;
+                for(Book book1 : BookUtil.bookList) {
+                    if(book1.getBookId() == bookIdInput) {
+                        book1.setRentState(true);
+                        check = true;
+                    }
+                }
+                if (check == true) {
+                    System.out.println("대출 처리 되었습니다.");
+                }
+                else {
+                    System.out.println("잘못된 입력입니다.");
+                    break;
+                }
+                
+                RentUtil.bookRent(bookIdInput, memberIdInput);
+                break;
+            case 3: // 도서 대출 연장
+                BookUtil.selectAllBooks();
+                System.out.println("연장 할 도서 번호 : ");
+                int bookNum = sc.nextInt();
+                boolean check3 = false;
+                for(Book book : BookUtil.bookList) {
+                    if(book.getBookId() == bookNum) {
+                        check3 = true;
+                    }
+                }
+                if (check3 == false) {
+                    System.out.println("잘못된 입력입니다.");
+                }
+                boolean check33 = false;
+                for(Rent rent : RentUtil.rentList) {
+                    if(rent.getBookId() == bookNum) {
+                        RentUtil.extend(rent);
+                        check33 = true;
+                    }
+                }
+                if(check33 == false) {
+                    System.out.println("대출중인 도서가 아닙니다.");
+                }
+                break;
+            case 4: // 도서 반납
+                BookUtil.selectAllBooks();
+                System.out.print("반납할 대출 번호 : ");
+                int rentNum = sc.nextInt();
+                boolean check4 = false;
+                for (Rent rent : RentUtil.rentList) {
+                    if(rent.getRentId() == rentNum) {
+                        RentUtil.bookReturn(rent);
+                        check4 = true;
+                    }
+                }
+                if(check4 == false) {
+                    System.out.println("잘못된 입력입니다.");
+                }
                 break;
         }
     }
