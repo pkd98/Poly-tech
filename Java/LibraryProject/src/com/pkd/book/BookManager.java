@@ -19,6 +19,7 @@ public class BookManager {
             System.out.println(" 4. 도서 삭제");
             System.out.println(" 5. 도서 대출");
             System.out.println(" 6. 도서 반납");
+            System.out.println(" 7. 도서 삭제 취소");
             System.out.println("====================================");
             int bookOptionInput = sc.nextInt();
 
@@ -73,7 +74,10 @@ public class BookManager {
                 
                 case 6:
                     BookUtil.bookReturn();
-
+                    break;
+                case 7:
+                    BookUtil.bookUndo();
+                    break;
                 default:
                     break;
             }
@@ -85,6 +89,7 @@ public class BookManager {
         System.out.println(" 0. 뒤로");
         System.out.println(" 1. 도서 전체 조회");
         System.out.println(" 2. 대출 가능한 도서 조회");
+        System.out.println(" 3. 대출 불가능 도서 조회");
         System.out.println("===============================");
         int selectInput = sc.nextInt();
 
@@ -98,6 +103,9 @@ public class BookManager {
 
             case 2:
                 BookUtil.selectPossibleBooks();
+                break;
+            case 3:
+                BookUtil.selectImpossibleBooks();
                 break;
         }
     }

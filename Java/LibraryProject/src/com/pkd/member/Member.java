@@ -1,17 +1,22 @@
 package com.pkd.member;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+import com.pkd.utils.Utils;
 
 public class Member {
+    private String id;
     private String name;
     private Date signUpDay;
     private String address;
     private String phoneNumber;
     private Date birthDay;
 
-    public Member(String name, Date signUpDay, String address, String phoneNumber, Date birthDay) {
+    public Member(String id, String name, Date signUpDay, String address, String phoneNumber,
+            Date birthDay) {
         super();
+        this.id = id;
         this.name = name;
         this.signUpDay = signUpDay;
         this.address = address;
@@ -20,6 +25,14 @@ public class Member {
     }
 
     public Member() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -63,7 +76,7 @@ public class Member {
 
     @Override
     public int hashCode() {
-        return Objects.hash(address, birthDay, name, phoneNumber, signUpDay);
+        return Objects.hash(address, birthDay, id, name, phoneNumber, signUpDay);
     }
 
     @Override
@@ -76,15 +89,22 @@ public class Member {
             return false;
         Member other = (Member) obj;
         return Objects.equals(address, other.address) && Objects.equals(birthDay, other.birthDay)
-                && Objects.equals(name, other.name)
+                && Objects.equals(id, other.id) && Objects.equals(name, other.name)
                 && Objects.equals(phoneNumber, other.phoneNumber)
                 && Objects.equals(signUpDay, other.signUpDay);
     }
 
     @Override
     public String toString() {
-        return "Member [name=" + name + ", signUpDay=" + signUpDay + ", address=" + address
-                + ", phoneNumber=" + phoneNumber + ", birthDay=" + birthDay + "]";
+        String convertSignUpDay = Utils.dateToString(signUpDay);
+        String convertBirthday = Utils.dateToString(birthDay);
+        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
+        Date now = new Date();
+        int age = Integer.parseInt(getYearFormat.format(now))
+                - Integer.parseInt(getYearFormat.format(birthDay)) + 1;
+
+        return "id :  " + id + ", 이름 : " + name + ", 나이 : " + age + ", 생일 : " + convertBirthday
+                + ", 가입일 : " + convertSignUpDay + ", 주소 : " + address + ", 연락처 : " + phoneNumber;
     }
 
 }

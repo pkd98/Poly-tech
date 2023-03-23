@@ -86,6 +86,6 @@ public class Book {
     public String toString() {
         String convertReleaseDate = Utils.dateToString(releaseDate);
         System.out.println();
-        return "ID : " + bookId + "도서명 : " + name + ", " + "출간일 : " + convertReleaseDate + ", " + "상태 : " + ((rentState == true) ? "대출 불가능" : "대출 가능");
+        return "ID : " + bookId + ", " + "도서명 : " + name + ", " + "출간일 : " + convertReleaseDate + ", " + "상태 : " + ((rentState == true) ? "대출 불가능" : "대출 가능");
     }
 }

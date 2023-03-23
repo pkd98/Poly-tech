@@ -5,13 +5,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import com.pkd.book.Book;
-import com.pkd.book.BookUtil;
 import com.pkd.utils.Utils;
 
 public class MemberManager {
     Scanner sc = new Scanner(System.in);
-    static List<Book> memberList = new ArrayList<>(); // 도서 목록
-    static List<Book> memberStack = new ArrayList<>(1); // 삭제 취소를 위한 stack
     
     public void start() {
         while (true) {
@@ -29,54 +26,74 @@ public class MemberManager {
                 case 0: // 뒤로 (리턴)
                     return;
 
-                case 1: // 도서 조회 -> 1) 전체 도서, 2) 대출 가능한 도서 (최근 출간된 순서)
-                    selectBook();
+                case 1: // 회원 조회
+                    MemberUtil.selectMember();
                     break;
 
-                case 2: // 도서 등록
-                    // 도서 제목 받기
-                    System.out.print("도서 제목 : ");
-                    String bookName = sc.next();
+                case 2: // 회원 등록
+                    // ID 받기
+                    System.out.print("ID : ");
+                    String id = sc.next();
+                    
+                    // 이름 받기
+                    System.out.print("이름 : ");
+                    String name = sc.next();
 
-                    // 도서 출간일 받기
-                    System.out.print("출간 일(yyyy/MM/dd): ");
-                    String releaseDateInput = sc.next();
-                    Date releaseDate = Utils.stringToDate(releaseDateInput);
+                    // 가입 일
+                    Date signUp = new Date();
+                    
+                    // 주소
+                    System.out.print("주소 : ");
+                    String address = sc.next();
+                    
+                    // 연락처
+                    System.out.print("연락처 : ");
+                    String phoneNumber = sc.next();
 
-                    // 책 인스턴스 생성
-                    Book book = new Book(bookName, releaseDate);
+                    // 생일
+                    System.out.print("생일(yyyy/MM/dd) : ");
+                    String birthInput = sc.next();
+                    Date birthDay = Utils.stringToDate(birthInput);
+                    
+                    // 회원 인스턴스 생성
+                    Member member = new Member(id, name, signUp, address, phoneNumber, birthDay);
+                    
                     // 책 등록!
-                    BookUtil.bookRegister(book); // 등록 결과는 해당 메서드에서 처리
+                    MemberUtil.memberRegister(member);
                     break;
 
-                case 3: // 도서 수정
-                    BookUtil.selectAllBooks();
-                    System.out.println("수정할 도서 번호 : ");
-                    int modifyBookNumber = sc.nextInt() - 1;
+                case 3: // 회원 수정
+                    MemberUtil.selectMember();
+                    System.out.println("수정할 회원 ID : ");
+                    String modifyId = sc.next();
+                    
+                    System.out.print("새 이름 : ");
+                    String newName = sc.next();
 
-                    System.out.print("새 제목 : ");
-                    String newBookName = sc.next();
-
-                    System.out.print("새 출간일 : ");
-                    Date newReleaseDate = Utils.stringToDate(sc.next());
-
-                    BookUtil.bookModify(modifyBookNumber, newBookName, newReleaseDate);
+                    System.out.print("새 주소 : ");
+                    String newAddress = sc.next();
+                    
+                    System.out.print("새 연락처 : ");
+                    String newPhoneNumber = sc.next();
+                    
+                    System.out.print("생일 수정(yyyy/MM/dd) : ");
+                    String newBirthDayInput = sc.next();
+                    Date newBirthDay = Utils.stringToDate(newBirthDayInput);
+                    
+                    MemberUtil.modifyMember(modifyId, newName, newAddress, newPhoneNumber, newBirthDay);
                     break;
 
-                case 4: // 도서 삭제
-                    BookUtil.selectAllBooks();
-                    System.out.println("삭제할 도서 번호 : ");
-                    int deleteBookNumber = sc.nextInt() - 1;
-                    BookUtil.bookRemove(deleteBookNumber);
+                case 4: // 회원 삭제
+                    MemberUtil.selectMember();
+                    System.out.print("삭제할 ID : ");
+                    String deleteId = sc.next();
+                    System.out.println(deleteId);
+                    MemberUtil.removeMember(deleteId);
                     break;
 
-                case 5: // 도서 대출
-                    BookUtil.bookRent();
+                case 5: // 삭제 취소
+                    MemberUtil.removeUndo();
                     break;
-
-                case 6:
-                    BookUtil.bookReturn();
-
                 default:
                     break;
             }
