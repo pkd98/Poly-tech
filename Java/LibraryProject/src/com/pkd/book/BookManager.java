@@ -141,12 +141,11 @@ public class BookManager {
                 // 유효성 검사
                 boolean checkMemberId = false;
                 for(Member member : MemberUtil.memberList) {
-                    if (!member.getId().equals(memberIdInput)) {
-                        System.out.println("잘못된 회원ID입니다.");
+                    if (member.getId().equals(memberIdInput)) {
                         checkMemberId = true;
                     }
                 }
-                if (checkMemberId == true) {
+                if (checkMemberId == false) {
                     break;
                 }
 
