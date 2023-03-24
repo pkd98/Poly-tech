@@ -26,9 +26,11 @@ public class Book {
         this.releaseDate = newReleaseDate;
         this.rentState = rentState;
     }
+
     public boolean getRentState() {
         return rentState;
     }
+
     public int getBookId() {
         return bookId;
     }

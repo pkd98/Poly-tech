@@ -21,10 +21,6 @@ public class MemberUtil {
         } else {
             System.out.println("정상 등록 되었습니다.");
         }
-
-        // 사용자 모드( 파일 입출력 추가 )
-
-        // --------------------------------
     }
 
     // 2. 전체 회원 조회
@@ -38,8 +34,8 @@ public class MemberUtil {
 
     // 3. 회원 수정
     public static void modifyMember(String modifyId, String newName, String newAddress,
-             String newPhoneNumber, Date newBirthDay) {
-        
+            String newPhoneNumber, Date newBirthDay) {
+
         boolean checkId = false;
         for (Member member : memberList) {
             if (modifyId.equals(member.getId())) {

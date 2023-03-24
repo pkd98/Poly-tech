@@ -38,14 +38,14 @@ public class BookManager {
                     // 도서 제목 받기
                     System.out.print("도서 제목 : ");
                     String bookName = sc.next();
-                    
+
                     // 도서 출간일 받기
                     System.out.print("출간 일(yyyy/MM/dd): ");
                     String releaseDateInput = sc.next();
                     Date releaseDate = Utils.stringToDate(releaseDateInput);
-                    
+
                     // 책 인스턴스 생성
-                    Book book = new Book(bookName, releaseDate);                     
+                    Book book = new Book(bookName, releaseDate);
                     // 책 등록!
                     BookUtil.bookRegister(book); // 등록 결과는 해당 메서드에서 처리
                     break;
@@ -54,13 +54,13 @@ public class BookManager {
                     BookUtil.selectAllBooks();
                     System.out.println("수정할 도서 번호 : ");
                     int modifyBookNumber = sc.nextInt();
-                    
+
                     System.out.print("새 제목 : ");
                     String newBookName = sc.next();
-                    
+
                     System.out.print("새 출간일 : ");
                     Date newReleaseDate = Utils.stringToDate(sc.next());
-                    
+
                     BookUtil.bookModify(modifyBookNumber, newBookName, newReleaseDate);
                     break;
 
@@ -74,7 +74,7 @@ public class BookManager {
                 case 5: // 도서 대출 관련
                     rents();
                     break;
-                
+
                 case 6: // 도서 삭제 취소
                     BookUtil.bookUndo();
                     break;
@@ -108,7 +108,7 @@ public class BookManager {
                 break;
         }
     }
-    
+
     public void rents() {
         System.out.println("========== 대출 관련 ==========");
         System.out.println(" 0. 뒤로");
@@ -132,15 +132,15 @@ public class BookManager {
                 BookUtil.selectPossibleBooks();
                 System.out.print("대출할 도서 ID : ");
                 int bookIdInput = sc.nextInt();
-                                    
+
                 // 어떤 회원이 대출했는지 선택
                 MemberUtil.selectMember();
                 System.out.print("대출 회원 ID : ");
                 String memberIdInput = sc.next();
-                
+
                 // 유효성 검사
                 boolean checkMemberId = false;
-                for(Member member : MemberUtil.memberList) {
+                for (Member member : MemberUtil.memberList) {
                     if (member.getId().equals(memberIdInput)) {
                         checkMemberId = true;
                     }
@@ -151,20 +151,19 @@ public class BookManager {
 
                 // 해당 도서 rent 상태 true 처리
                 boolean check = false;
-                for(Book book1 : BookUtil.bookList) {
-                    if(book1.getBookId() == bookIdInput) {
+                for (Book book1 : BookUtil.bookList) {
+                    if (book1.getBookId() == bookIdInput) {
                         book1.setRentState(true);
                         check = true;
                     }
                 }
                 if (check == true) {
                     System.out.println("대출 처리 되었습니다.");
-                }
-                else {
+                } else {
                     System.out.println("잘못된 입력입니다.");
                     break;
                 }
-                
+
                 RentUtil.bookRent(bookIdInput, memberIdInput);
                 break;
             case 3: // 도서 대출 연장
@@ -172,8 +171,8 @@ public class BookManager {
                 System.out.println("연장 할 도서 번호 : ");
                 int bookNum = sc.nextInt();
                 boolean check3 = false;
-                for(Book book : BookUtil.bookList) {
-                    if(book.getBookId() == bookNum) {
+                for (Book book : BookUtil.bookList) {
+                    if (book.getBookId() == bookNum) {
                         check3 = true;
                     }
                 }
@@ -182,13 +181,13 @@ public class BookManager {
                 }
                 boolean check33 = false;
                 Rent targetRent = null;
-                for(Rent rent : RentUtil.rentList) {
-                    if(rent.getBookId() == bookNum) {
+                for (Rent rent : RentUtil.rentList) {
+                    if (rent.getBookId() == bookNum) {
                         targetRent = rent;
                         check33 = true;
                     }
                 }
-                if(check33 == false) {
+                if (check33 == false) {
                     System.out.println("대출중인 도서가 아닙니다.");
                 } else {
                     RentUtil.extend(targetRent);
@@ -201,12 +200,12 @@ public class BookManager {
                 boolean check4 = false;
                 Rent targetRent4 = null;
                 for (Rent rent : RentUtil.rentList) {
-                    if(rent.getRentId() == rentNum) {
+                    if (rent.getRentId() == rentNum) {
                         targetRent4 = rent;
                         check4 = true;
                     }
                 }
-                if(check4 == false) {
+                if (check4 == false) {
                     System.out.println("잘못된 입력입니다.");
                 } else {
                     RentUtil.bookReturn(targetRent4);

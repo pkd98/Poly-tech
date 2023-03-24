@@ -11,24 +11,16 @@ public class SaveManager<T> {
         this.saveMode = saveMode;
     }
 
-    public void saveFactory() {
-
-        switch (saveMode) {
-            case NO_SAVE:
-                break;
-            case YES_SAVE:
-//                new ObjectToCSV() {
-//                    
-//                    @Override
-//                    public void objToCsv(String filePath, Object object) {
-//                    }
-//                };
-                break;
-
-            default:
-                break;
-        }
-
-    }
-
+//    public void saveFactory() {
+//
+//        switch (saveMode) {
+//            case NO_SAVE:
+//                break;
+//            case YES_SAVE:
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    }
 }

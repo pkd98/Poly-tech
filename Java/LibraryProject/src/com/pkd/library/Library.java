@@ -10,11 +10,11 @@ import com.pkd.mode.SaveUtil;
 
 public class Library {
 
-    //private ManagementMode mode;
+    // private ManagementMode mode;
     private Scanner sc = new Scanner(System.in);
     private String currentMode;
     private int modeInput;
-    
+
     public void libraryStart() {
         boolean control = true;
         while (control) {
@@ -47,7 +47,7 @@ public class Library {
                     continue;
             }
         }
-        
+
         while (true) {
             System.out.println(currentMode);
             System.out.println("1. 도서 관리");
@@ -61,12 +61,12 @@ public class Library {
                     BookManager bookManager = new BookManager();
                     bookManager.start();
                     break;
-                    
+
                 case 2: // 회원 관리 프로그램 시작
                     MemberManager memberManager = new MemberManager();
                     memberManager.start();
                     break;
-                    
+
                 case 3: // 종료
                     System.out.println("프로그램을 종료합니다.");
                     // csv 저장 코드 추가

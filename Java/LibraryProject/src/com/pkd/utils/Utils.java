@@ -22,7 +22,4 @@ public class Utils {
         String answerDate = format.format(date);
         return answerDate;
     }
-    
-    
-    
 }

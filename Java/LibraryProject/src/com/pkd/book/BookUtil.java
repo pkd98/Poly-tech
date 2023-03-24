@@ -21,10 +21,6 @@ public class BookUtil {
         } else {
             System.out.println("정상 등록 되었습니다.");
         }
-
-        // 사용자 모드( 파일 입출력 추가 )
-
-        // --------------------------------
     }
 
     public static void bookModify(int modifyBookId, String newBookName, Date newReleaseDate) { // 도서
@@ -53,19 +49,18 @@ public class BookUtil {
                 break;
             }
         }
-        
+
         if (check == true)
             System.out.println("정상 삭제 되었습니다.");
         else
             System.out.println("잘못된 입력 입니다.");
     }
 
-    
+
     public static void bookUndo() {
         if (bookStack.size() == 0) {
             System.out.println("삭제 취소할 책이 없습니다.");
-        }
-        else {
+        } else {
             bookList.add(bookStack.get(0));
             bookSort(bookList);
             bookStack.remove(0);
