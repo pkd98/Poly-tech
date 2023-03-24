@@ -196,14 +196,18 @@ public class BookManager {
                 System.out.print("반납할 대출 번호 : ");
                 int rentNum = sc.nextInt();
                 boolean check4 = false;
+                Rent targetRent = null;
                 for (Rent rent : RentUtil.rentList) {
                     if(rent.getRentId() == rentNum) {
-                        RentUtil.bookReturn(rent);
+                        targetRent = rent;
                         check4 = true;
                     }
                 }
                 if(check4 == false) {
                     System.out.println("잘못된 입력입니다.");
+                } else {
+                    RentUtil.bookReturn(targetRent);
+                    System.out.println("정상 반납처리 되었습니다.");
                 }
                 break;
         }
