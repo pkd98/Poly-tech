@@ -181,14 +181,17 @@ public class BookManager {
                     System.out.println("잘못된 입력입니다.");
                 }
                 boolean check33 = false;
+                Rent targetRent = null;
                 for(Rent rent : RentUtil.rentList) {
                     if(rent.getBookId() == bookNum) {
-                        RentUtil.extend(rent);
+                        targetRent = rent;
                         check33 = true;
                     }
                 }
                 if(check33 == false) {
                     System.out.println("대출중인 도서가 아닙니다.");
+                } else {
+                    RentUtil.extend(targetRent);
                 }
                 break;
             case 4: // 도서 반납
@@ -196,17 +199,17 @@ public class BookManager {
                 System.out.print("반납할 대출 번호 : ");
                 int rentNum = sc.nextInt();
                 boolean check4 = false;
-                Rent targetRent = null;
+                Rent targetRent4 = null;
                 for (Rent rent : RentUtil.rentList) {
                     if(rent.getRentId() == rentNum) {
-                        targetRent = rent;
+                        targetRent4 = rent;
                         check4 = true;
                     }
                 }
                 if(check4 == false) {
                     System.out.println("잘못된 입력입니다.");
                 } else {
-                    RentUtil.bookReturn(targetRent);
+                    RentUtil.bookReturn(targetRent4);
                     System.out.println("정상 반납처리 되었습니다.");
                 }
                 break;

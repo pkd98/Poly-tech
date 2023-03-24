@@ -39,6 +39,7 @@ public class RentUtil {
             calendar.setTime(date);
             calendar.add(Calendar.DATE, 7);
             rent.setReturnDate(calendar.getTime());
+            rentSort(rentList);
             System.out.println("정상적으로 대출 연장되셨습니다.");
         }
     }

@@ -1,1 +1,4 @@
 rentId,memberId,bookId,rentExtentionState,returnDate
+1,PKD,2,false,Fri Apr 07 10:36:26 KST 2023
+2,lalala,1,false,Fri Apr 07 10:36:33 KST 2023
+0,0,0,false,Fri Apr 14 10:36:16 KST 2023

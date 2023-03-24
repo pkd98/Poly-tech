@@ -1,4 +1,5 @@
 bookId,name,releaseDate,rentState
-0,자바,Thu Oct 05 00:00:00 KST 2000,false
-1,테스트,Mon Oct 01 00:00:00 KST 2001,false
-2,파이썬,Sun Nov 21 00:00:00 KST 2010,false
+0,자바,Thu Oct 05 00:00:00 KST 2000,true
+2,파이썬,Sun Nov 21 00:00:00 KST 2010,true
+3,이펙티브자바,Wed Jan 01 00:00:00 KST 2020,false
+1,코틀린,Fri Jan 01 00:00:00 KST 2021,true
