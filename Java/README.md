@@ -35,7 +35,6 @@
 ## 과제
 * [조용한곳 찾기 (알고리즘 객체지향으로 풀기 - 클래스, 인터페이스 분리 풀이)]()
 
-## 프로젝트
-* 도서 대출 관리 프로그램 만들기
-** [코드](https://github.com/pkd98/Poly-tech/tree/master/Java/LibraryProject)
-** [프로젝트 설명]()
+## 프로젝트 - 도서 대출 관리 프로그램
+* [코드](https://github.com/pkd98/Poly-tech/tree/master/Java/LibraryProject)
+* [프로젝트 설명]()
