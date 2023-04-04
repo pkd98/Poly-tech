@@ -1,0 +1,42 @@
+-- Data type 변환 함수
+-- 1
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'YEAR'), TO_CHAR(SYSDATE, 'YEAR'), TO_CHAR(SYSDATE, 'YYYY'), TO_CHAR(SYSDATE, 'YY') FROM DUAL;
+
+-- 2
+SELECT
+      TO_CHAR(SYSDATE, 'MONTH'), TO_CHAR(SYSDATE, 'MON'), --MONTH:9자, MON:3자
+      TO_CHAR(SYSDATE, 'Mon'), TO_CHAR(SYSDATE, 'mon'),
+      TO_CHAR(SYSDATE, 'MM'), TO_CHAR(SYSDATE, 'mm')
+FROM DUAL;
+
+-- 3
+SELECT
+      SYSDATE,
+      TO_CHAR(SYSDATE, 'DAY'), TO_CHAR(SYSDATE, 'Day'), TO_CHAR(SYSDATE, 'DY'),
+      TO_CHAR(SYSDATE, 'dy'),
+      TO_CHAR(SYSDATE, 'DD'), TO_CHAR(SYSDATE, 'dd')
+FROM DUAL;
+
+-- 4
+SELECT
+      123456, TO_CHAR(123456,'999999'),
+      LENGTH(TO_CHAR(123456,'999999')),
+       -- 공백문자가 있음을 확인할 수 있다.
+      REPLACE(TO_CHAR(123456, '999999'), ' ', '*'),
+      LENGTH(TO_CHAR(123456,'fm999999')) -- fm(format modifier): remove padded blanks
+FROM DUAL;
+
+-- 5
+SELECT
+      TO_CHAR(12345 * 123.45, '999,999.99'),
+      TO_CHAR(12345123.45,'99,999,999.99')
+FROM DUAL;
+
+-- 6
+SELECT
+      TO_CHAR(SAL,'$999,999'),
+      REPLACE(TO_CHAR(SAL,'$999,999'),' ','?'),
+      TO_CHAR(SAL,'L999,999'),
+      TO_CHAR(SAL,'999,999L'),
+      TO_CHAR(SAL,'fm999,999L')
+FROM EMP;
