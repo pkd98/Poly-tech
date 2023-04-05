@@ -1,0 +1,37 @@
+-- Multi table INSERT
+-- 1
+INSERT ALL
+    INTO DEPT(DEPTNO, DNAME, LOC) VALUES(55, 'Multi', 'INSERT1')
+    INTO DEPT(DEPTNO, DNAME, LOC) VALUES(56, 'Multi', 'INSERT2')
+    INTO DEPT(DEPTNO, DNAME, LOC) VALUES(57, 'Multi', 'INSERT3')
+    SELECT 1 FROM dual;
+    
+SELECT * FROM DEPT; -- N개 Row 1 Insert
+-- 2
+ROLLBACK;
+SELECT * FROM DEPT;
+
+-- Conditional INSERT
+-- 1
+-- 기존 테이블의 구성 그대로 새로운 테이블을 만든다.
+CREATE TABLE BONUS_2 AS SELECT * FROM BONUS WHERE 1=2; -- FALSE
+
+-- 기존 테이블 데이터까지 모두 복사해서 새로운 테이블 만든다.
+CREATE TABLE BONUS_3 AS SELECT * FROM BONUS WHERE 1=1; -- TRUE
+
+DESC BONUS_2;
+SELECT * FROM BONUS_2;
+
+-- 2
+-- 메인 쿼리
+INSERT ALL
+	WHEN COMM > 0 THEN INTO BONUS -- 조건에 따라 INSERT
+	WHEN COMM IS NULL THEN INTO BONUS_2
+	-- 서브 쿼리
+	SELECT ename,job,sal,comm FROM emp WHERE job IN ('CLERK','SALESMAN');
+
+SELECT * FROM bonus;
+SELECT * FROM bonus_2;
+
+-- 3
+ROLLBACK;
