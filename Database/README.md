@@ -12,4 +12,4 @@
 * [외부 데이터 적재](https://github.com/pkd98/Poly-tech/tree/master/Database/%EC%A3%BC%EB%A7%90%EA%B3%BC%EC%A0%9C/01)
 * [DBMS Connection 및 시각화](https://github.com/pkd98/Poly-tech/tree/master/Database/%EC%A3%BC%EB%A7%90%EA%B3%BC%EC%A0%9C/02)
 
-## 프로젝트 - [도서대출관리시스템_V2(DBC사용)](https://github.com/pkd98/Poly-tech/tree/master/Database/practice/%5B%EC%B5%9C%EC%A2%85%EA%B3%BC%EC%A0%9C%5D%EB%8F%84%EC%84%9C%EB%8C%80%EC%B6%9C%EA%B4%80%EB%A6%AC%EC%8B%9C%EC%8A%A4%ED%85%9C-V2)
+## 프로젝트 - [도서대출관리시스템_V2 (JDBC사용)](https://github.com/pkd98/Poly-tech/tree/master/Database/practice/%5B%EC%B5%9C%EC%A2%85%EA%B3%BC%EC%A0%9C%5D%EB%8F%84%EC%84%9C%EB%8C%80%EC%B6%9C%EA%B4%80%EB%A6%AC%EC%8B%9C%EC%8A%A4%ED%85%9C-V2)
