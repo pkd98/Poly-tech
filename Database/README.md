@@ -9,7 +9,7 @@
 * [[SQL] DBMS 아키텍처 - Server Process](https://keydi.tistory.com/126)
 * [[SQL] DML-INSERT, UPDATE, DELETE](https://keydi.tistory.com/127)
 * [[SQL] DML - TRANSACTION](https://keydi.tistory.com/128)
-* [SQL] SubQuery](https://keydi.tistory.com/129)
+* [[SQL] SubQuery](https://keydi.tistory.com/129)
 * [[SQL] JOIN](https://keydi.tistory.com/130)
 * [[SQL] Constraint(선언적 무결성 제약 사항)](https://keydi.tistory.com/131)
 * [[SQL] Sequence](https://keydi.tistory.com/132)
