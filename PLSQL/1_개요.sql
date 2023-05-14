@@ -1,0 +1,36 @@
+-- 1.
+REM DEFAULT SIZE 1M bytes
+SET SERVEROUTPUT ON -- SET SERVEROUTPUT OFF 
+
+BEGIN
+	FOR I IN 1..10
+	LOOP
+		DBMS_OUTPUT.PUT_LINE(TO_CHAR(I)||' processed');
+	END LOOP;
+END;
+/
+
+-- 1-1
+desc dbms_output;
+
+-- 2
+REM DEFAULT SIZE 1M bytes
+    SET SERVEROUTPUT ON SIZE 2000
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE(rpad('X',100,'X')); -- line ±Ê¿Ã 32767 bytes
+    END;
+/
+
+BEGIN
+	FOR I IN 1..100 -- FOR I IN 1..100
+	LOOP
+		DBMS_OUTPUT.PUT_LINE(rpad('X',100,'X'));
+	END LOOP;
+END;
+/
+
+-- 2-1
+SHOW SERVEROUTPUT;
+SET SERVEROUTPUT ON;
+
+
