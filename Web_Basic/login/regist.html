@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>회원가입 양식</h1>
+        <form action="">
+            <label for="user-name">
+                이메일
+            </label>
+            <input type="text" id="user-name" placeholder="ooo@ooo.com">
+            <br />
+            <label for="user-passwd">
+                패스워드
+            </label>
+            <input type="password" id="user-passwd" placeholder="10자리">
+            <br />
+            <label for="user-passwd2">
+                패스워드 확인
+            </label>
+            <input type="password" id="user-passwd2">
+            <br />
+            <label for="gender-man"> 남자 </label>
+            <input type="radio" name="gender" value="남" id="gender-man" />
+            <label for="gender-woman"> 여자 </label>
+            <input type="radio" name="gender" value="여" id="gender-woman" />
+            <label for="gender-corp"> 법인 </label>
+            <input type="radio" name="gender" value="여" id="gender-corp" />
+            <br />
+
+            <select name="" id="">
+                <option value="3">증강학과</option>
+                <option value="4" selected>데이터학과</option>
+                <option value="5">3D학과</option>
+                <option value="7">전기학과</option>
+                <option value="8">바이오학과</option>
+            </select>
+            <br />
+            <textarea name="" id="" cols="30" rows="5" placeholder="자기소개 50자 이내.."></textarea>
+            <br />
+            <label for="agree">가입동의</label>
+            <input type="checkbox" id="agree">
+            <br />
+            <input type="button" value="확인" />
+            <input type="reset" value="초기화">
+        </form>
+    </body>
+</html>
