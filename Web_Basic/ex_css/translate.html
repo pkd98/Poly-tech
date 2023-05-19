@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <style>
+        .origin {
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid black;
+        }
+
+        .origin>div {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            transition: transform 0.3s;
+            /* 추가: 변환에 대한 전환 효과 */
+
+        }
+
+        .movex:hover {
+            transform: translateX(100px);
+        }
+
+        .movey:hover {
+            transform: translateY(100px);
+        }
+
+        .movexy:hover {
+            transform: translate(100px, 100px);
+        }
+    </style>
+    <body>
+        <div class="origin">
+            <div class="movex"></div>
+        </div>
+        <div class="origin">
+            <div class="movey"></div>
+        </div>
+        <div class="origin">
+            <div class="movexy"></div>
+        </div>
+
+    </body>
+</html>

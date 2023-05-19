@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .outer {
+                border: 1px dashed red;
+                width: 200px;
+                height: 200px;
+                padding: 50px;
+            }
+
+            .inner {
+                border: 1px solid blue;
+                background-color: cadetblue;
+                width: 100px;
+                height: 100px;
+            }
+
+            .el-1 {
+                margin-top: -100px;
+            }
+
+            .el-2 {
+                border: 1px solid black;
+                margin: 70px;
+            }
+
+            .el-3 {
+                border: 1px solid black;
+                margin: 50px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>negative margin 실습</h2>
+        <div class="outer">
+            <div class="inner el-1">요소 1</div>
+        </div>
+        <br><br><br>
+        <!-- 두 개의 요소의 margin이 중첩이 되면, 가장 큰 값만이 선택되어 적용된다. -->
+        <div class="el-2">요소2</div>
+        <div class="el-3">요소3</div>
+
+    </body>
+</html>

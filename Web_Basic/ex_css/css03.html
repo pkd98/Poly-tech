@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            div {
+                border: 1px solid black;
+            }
+
+            div div {
+                border: 1px dashed red;
+                /* dashed : 점선 */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- padding 실습하기 : 내부 영역 -->
+        <h2>Padding 실습</h2>
+        <style>
+            .el-1 {
+                /* 상하좌우 */
+                padding: 10px;
+            }
+
+            .el-2 {
+                /* 상하, 좌우 */
+                padding: 10px 40px;
+            }
+
+            .el-3 {
+                /* 상, 좌우, 하*/
+                padding: 10px 40px 60px;
+            }
+
+            .el-4 {
+                /* 상, 우, 하, 좌 */
+                padding: 10px 30px 50px 70px;
+            }
+        </style>
+        <div class="el-1">
+            <div>요소1</div>
+        </div>
+        <div class="el-2">
+            <div>요소2</div>
+        </div>
+        <div class="el-3">
+            <div>요소 3</div>
+        </div>
+        <div class="el-4">
+            <div>요소 4</div>
+        </div>
+
+        <!-- margin 실습 : inner 요소의 바깥쪽 -->
+        <h2>Margin 실습</h2>
+        <style>
+            .inner-1 {
+                /* 상하좌우 */
+                margin: 10px;
+            }
+
+            .inner-2 {
+                /* 상하 좌우 */
+                margin: 10px 30px;
+            }
+
+            .inner-3 {
+                /* 상, 좌우, 하*/
+                margin: 10px 30px 50px;
+            }
+
+            .inner-4 {
+                /* 상, 우, 하, 좌 */
+                margin: 10px 30px 50px 70px;
+            }
+        </style>
+        <div>
+            <div class="inner-1">요소 1</div>
+        </div>
+        </style>
+        <div>
+            <div class="inner-2">요소 2</div>
+        </div>
+        </style>
+        <div>
+            <div class="inner-3">요소 3</div>
+        </div>
+        </style>
+        <div>
+            <div class="inner-4">요소 4</div>
+        </div>
+    </body>
+</html>

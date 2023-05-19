@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+        </title>
+        <style>
+            div {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                animation-name: change-bg;
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+
+            @keyframes change-bg {
+                from {
+                    background-color: blue;
+                    border: 1px solid black;
+                    left: 0;
+                }
+
+                to {
+                    background-color: #a5d6ff;
+                    border: 1px solid blue;
+                    border-radius: 50%;
+                    right: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

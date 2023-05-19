@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        #wrapper {
+            width: 100%;
+            border: 0px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            border: 1px solid black;
+            display: inline-block;
+            float: left;
+            width: 250px;
+            height: 250px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width:1300px) {
+            body {
+                background-color: green;
+            }
+
+            div {
+                width: 20%;
+            }
+
+        }
+
+        @media (max-width:800px) {
+            body {
+                background-color: blue;
+            }
+
+            div {
+                width: 40%;
+            }
+
+            div:nth-child(3) {
+                display: block;
+            }
+        }
+
+        @media (max-width:520px) {
+            body {
+                background-color: red;
+            }
+
+            div {
+                width: 100%;
+                float: auto;
+            }
+        }
+    </style>
+    <body>
+        <div id="wrapper">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+            <div>d</div>
+        </div>
+    </body>
+</html>

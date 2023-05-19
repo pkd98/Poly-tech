@@ -23,8 +23,15 @@
                 margin: 0 auto;
             } */
 
+            /* 초기화 */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
             body {
                 padding: 0;
+                /*여백을 제거 했음에도, 여백이 남아있음*/
                 margin: 0;
                 background-color: #cccccc;
             }
@@ -34,11 +41,16 @@
                 margin: 0 auto;
 
             }
+
+            /* wrapper class 내부의 h2 요소에 대해 */
+            .wrapper .main-title {
+                color: red;
+            }
         </style>
     </head>
     <body>
         <div class="wrapper" style="width:50%;">
-            <h2> 레이아웃</h2>
+            <h2 class="main-title"> 레이아웃</h2>
         </div>
 
         <!-- <div class="outer-box">

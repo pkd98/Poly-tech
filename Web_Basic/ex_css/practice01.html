@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            /* 헤더 요소 선택자를 사용하여 상단 공백 제거 */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                margin-top: 0;
+                padding-top: 0;
+                height: 50px;
+                background-color: rgb(113, 113, 247);
+            }
+
+            h1 {
+                display: inline;
+            }
+
+            .list {
+                display: inline-block;
+                text-align: left;
+            }
+
+            .el-1 {
+                margin-top: 50px;
+                width: 1000px;
+                height: 200px;
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 50px;
+            }
+
+            .el-2 {
+                width: 1000px;
+                height: 200px;
+                border-style: dashed;
+                border-color: purple;
+                border-width: 2px;
+                border-radius: 50px;
+            }
+
+            .el-3 {
+                width: 1000px;
+                height: 200px;
+                border-style: solid;
+                border-color: green;
+                border-width: 2px;
+                border-top-left-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+
+            footer {
+                margin-top: 0;
+                padding-top: 0;
+                height: 50px;
+                background-color: rgba(84, 93, 100, 0.925);
+
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>애완견 종류</h1>
+            <span class="list">
+                <span>애완견 종류</span>
+                <span>입양하기</span>
+                <span>건강돌보기</span>
+                <span>더불어살기</span>
+            </span>
+        </header>
+        <main>
+            <section>
+                <div class="el-1">활달한 강아지</div><br>
+                <div class="el-2">온순한 강아지</div><br>
+                <div class="el-3">사납지만 복종적인 강아지</div><br>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
