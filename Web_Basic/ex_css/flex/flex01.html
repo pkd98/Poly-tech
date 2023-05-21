@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Flex box
+        </title>
+        <style>
+            body {
+                background-color: #cccccc;
+                margin: 0;
+            }
+
+            #wrapper {
+                /* 최대 폭 지정 */
+                max-width: 1200px;
+                /* 공백 제거 */
+                margin: 0 auto;
+                /* 브라우저 크기에 딱 맞추기 */
+                height: 100vh;
+                /* 모든 요소들이 inline 요소 처럼 변하고, 컨텐츠 크기대로 맞춰진다. */
+                display: flex;
+                /* 요소들을 열방향으로 정렬 */
+                flex-direction: column;
+            }
+
+            #header {
+                background-color: aquamarine;
+                height: 50px;
+            }
+
+            #footer {
+                width: 100%;
+                background-color: aquamarine;
+                height: 50px;
+            }
+
+            #main {
+                display: flex;
+                height: 100%;
+                flex-grow: 1;
+            }
+
+            #side {
+                width: 200px;
+                /*브라우저 줄어들어도, 값 유지하도록 함*/
+                flex-shrink: 0;
+                background-color: blue;
+            }
+
+            #content {
+                flex-grow: 1;
+                background-color: darkcyan;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #content>nav {
+                background-color: bisque;
+            }
+
+            #content>main {
+                background-color: cornflowerblue;
+                flex-grow: 1;
+            }
+
+            #content>.copyright {
+                background-color: darkorange;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                header
+            </div>
+            <div id="main">
+                <div id="side">
+                    Side
+                </div>
+                <div id="content">
+                    <nav>nav</nav>
+                    <main>Content</main>
+                    <div class="copyright">copyright</div>
+                </div>
+            </div>
+            <div id="footer">
+                footer
+            </div>
+        </div>
+    </body>
+</html>

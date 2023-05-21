@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #wrapper {
+                background-color: #a9a9a9;
+                display: flex;
+                height: 100vh;
+
+            }
+
+            #side {
+                background-color: blueviolet;
+                width: 200px;
+                /*브라우저 줄어들어도, 값 유지하도록 함*/
+                flex-shrink: 1;
+            }
+
+            main {
+                background-color: darkcyan;
+                flex-grow: 1;
+
+                display: flex;
+                flex-direction: column;
+            }
+
+            #header {
+                background-color: aliceblue;
+                flex-grow: 1;
+                flex-direction: column;
+            }
+
+            #content {
+                background-color: bisque;
+            }
+
+            #footer {
+                background-color: darkgreen;
+            }
+
+            #right {
+
+                flex-grow: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="side">Side</div>
+            <main>
+                <div class="header">header</div>
+                <div class="content">content</div>
+                <div class="footer">footer</div>
+            </main>
+            <div id="right">side-right</div>
+        </div>
+    </body>
+</html>
