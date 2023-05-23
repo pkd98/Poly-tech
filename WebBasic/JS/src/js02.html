@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <script>
+            function random(number) {
+                return Math.floor(Math.random() * number);
+            }
+
+            function bgChange() {
+                const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+                document.body.style.backgroundColor = rndCol;
+            }
+            bgChange();
+        </script>
+        <p>새로 고침 하세요</p>
+    </body>
+</html>
