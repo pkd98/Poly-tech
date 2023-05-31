@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>xhr 실습2</h1>
+        <div id="result"></div>
+        <script>
+            let xhr = new XMLHttpRequest(); // 비동기 통신 객체
+            xhr.open("GET", "./student02.JSON"); // 파일 열기
+            xhr.send();
+
+            // 서버의 상태가 변경될 때 마다 호출된다.
+            xhr.onreadystatechange = function (event) {
+                // 통신 및 처리가 완료되어 프로그램에서 사용할 수 있는 상태
+                // 요청이 정상적으로 처리가 되었을 때
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    let students = JSON.parse(xhr.responseText);
+                    console.log(students);
+                    renderHTML(students);
+                }
+            }
+
+            function renderHTML(contents) {
+                let htmlString = "";  // 문자열 초기화
+
+                for (let content of contents) {
+                    htmlString += `
+                    <h2>${content.name}</h2>
+                    <ul>
+                        <li> major: ${content.major} </li>
+                        <li> grade: ${content.grade} </li>
+                    </ul>
+                    `;
+                }
+
+                document.getElementById("result").innerHTML = htmlString;
+            }
+        </script>
+    </body>
+</html>

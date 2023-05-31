@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Axios CDN Example</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <script>
+            // Make an asynchronous GET request
+            axios.get('../json/student.json')
+                .then(function (response) {
+                    // Request successful, handle the response data
+                    console.log(response.data);
+                })
+                .catch(function (error) {
+                    // Request failed, handle the error
+                    console.log(error);
+                });
+        </script>
+    </body>
+</html>

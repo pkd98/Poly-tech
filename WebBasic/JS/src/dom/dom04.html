@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .message {
+                border: 1px solid black;
+                background-color: lightgreen;
+                display: none;
+            }
+
+            .message-close {
+                margin-left: 10px;
+                border: 1px solid black;
+                background-color: red;
+            }
+        </style>
+        <script>
+            // html 문서 정상적 로딩 이후 함수 실행
+            document.addEventListener('DOMContentLoaded', () => {
+                let button = document.querySelector(".btn-message");
+                let message = document.querySelector(".message");
+                let messageClose = document.querySelector(".message-close");
+                console.log(button);
+                // 해당 버튼에 click 이벤트시 다음 실행
+                button.addEventListener('click', () => {
+                    message.style.display = "block";
+
+                });
+                messageClose.addEventListener('click', (e) => {
+                    message.style.display = "none";
+                    console.log(e);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button class="btn-message" onclick="">message</button>
+        <div class="message">
+            <span>ㅎㅇ요</span><span class="message-close">X</span>
+        </div>
+    </body>
+</html>

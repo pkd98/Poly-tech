@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            ul {
+                display: inline-block;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            ul li {
+                display: inline-block;
+                margin-right: 10px;
+                width: 100px;
+                height: 100px;
+                background-color: cadetblue;
+            }
+
+            .dragging {
+                background-color: yellow;
+            }
+
+            .selected {
+                background-color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="sortable">
+            <li>아이템 1</li>
+            <li>아이템 2</li>
+            <li>아이템 3</li>
+            <li>아이템 4</li>
+            <li>아이템 5</li>
+        </ul>
+
+        <script>
+            let draggedElement = null;
+            let prevIndex = null;
+            let selectedElement = null;
+            let isSelect = false;
+
+            function dragStart(event) {
+                draggedElement = event.target;
+                prevIndex = Array.from(draggedElement.parentNode.children).indexOf(draggedElement);
+                event.dataTransfer.effectAllowed = "move";
+                event.dataTransfer.setData("text/html", draggedElement.innerHTML);
+                draggedElement.classList.add("dragging");
+            }
+
+            function dragOver(event) {
+                event.preventDefault();
+                event.dataTransfer.dropEffect = "move";
+                const targetElement = event.target.closest("li");
+                if (targetElement && targetElement !== draggedElement) {
+                    const currentIndex = Array.from(targetElement.parentNode.children).indexOf(targetElement);
+                    if (currentIndex > prevIndex) {
+                        targetElement.parentNode.insertBefore(draggedElement, targetElement.nextSibling);
+                    } else {
+                        targetElement.parentNode.insertBefore(draggedElement, targetElement);
+                    }
+                    prevIndex = currentIndex;
+                }
+            }
+
+            function dragEnd(event) {
+                draggedElement.classList.remove("dragging");
+                draggedElement = null;
+                prevIndex = null;
+            }
+
+            function selectElement(event) {
+                event.preventDefault();
+                const clickedElement = event.target;
+                if (clickedElement.tagName === "LI") {
+                    if (!clickedElement.classList.contains("selected")) {
+                        clickedElement.setAttribute("draggable", "true");
+                    } else {
+                        clickedElement.setAttribute("draggable", "false");
+                    }
+                    clickedElement.classList.toggle("selected");
+                }
+            }
+
+            const sortable = document.getElementById("sortable");
+            sortable.addEventListener("click", selectElement);
+            sortable.addEventListener("dragstart", dragStart);
+            sortable.addEventListener("dragover", dragOver);
+            sortable.addEventListener("dragend", dragEnd);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let okButton = document.querySelector('#submit');
+                okButton.addEventListener('click', function () {
+                    alert("확인버튼 클릭");
+
+                    let username = document.querySelector('#username');
+                    console.log(username);
+                    let passwd = document.querySelector('#passwd');
+                    console.log(passwd.value);
+
+                    if (passwd.value == "123456") {
+                        alert("pw is too simple");
+                    }
+                    // 서버 전송
+                    // 1. form - action 으로 submit
+                    // 2. ajax 비동기 통신으로 서버 전송
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <input type="text" name="username" id="username">
+        <input type="text" name="passwd" id="passwd">
+        <button id="submit">확인</button>
+    </body>
+</html>

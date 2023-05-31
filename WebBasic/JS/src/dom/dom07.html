@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .message {
+                border: 1px solid black;
+                padding: 10px;
+                background-color: lightgray;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let btn = document.querySelector('#btn-add').addEventListener('click', function () {
+                    let div = document.createElement('div');
+                    div.classList.add('message');
+                    document.body.appendChild(div);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button id="btn-add">추가</button>
+        <div class="message"></div>
+    </body>
+</html>
