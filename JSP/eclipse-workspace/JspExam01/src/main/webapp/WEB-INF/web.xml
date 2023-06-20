@@ -9,14 +9,30 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
+  
+    <context-param>
+        <param-name>contextParam</param-name>
+        <param-value>data</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class> com.pkd.ContextListenerEx01</listener-class>
+    </listener>
+    
+    <servlet>
     <description></description>
-    <display-name>JspTest01</display-name>
-    <servlet-name>JspTest01</servlet-name>
-    <servlet-class>com.pkd.TestController</servlet-class>
+    <display-name>ServletConfigEx</display-name>
+    <servlet-name>ServletConfigEx</servlet-name>
+    <servlet-class>com.pkd.ServletConfigEx</servlet-class>
+    <init-param>
+        <param-name>test</param-name>
+        <param-value>1234</param-value>
+    </init-param>
   </servlet>
+  <!-- 
   <servlet-mapping>
     <servlet-name>JspTest01</servlet-name>
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
+   -->
 </web-app>

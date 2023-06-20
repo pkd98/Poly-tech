@@ -11,6 +11,16 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/dms.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/ojdbc11.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/ons.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/oraclepki.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/orai18n.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/rsi.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/simplefan.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/ucp11.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/xdb.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/xmlparserv2.jar"/>
+	<classpathentry kind="lib" path="D:/SQLDEV/ojdbc11-full/xmlparserv2_sans_jaxp_services.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
