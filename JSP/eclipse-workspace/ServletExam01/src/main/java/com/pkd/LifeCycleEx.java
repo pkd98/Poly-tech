@@ -67,5 +67,4 @@ public class LifeCycleEx extends HttpServlet {
         // TODO Auto-generated method stub
 	    System.out.println("PreDestroy");
     }
-
 }
