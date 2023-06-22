@@ -52,7 +52,7 @@ public class Repository {
             // EMP 테이블 조회 쿼리 실행
             employeeResultSet = stmt.executeQuery(selectEmployee);
             System.out.println("Fetch Size : " + employeeResultSet.getFetchSize());
-            
+
             // EMP 객체 생성, HashMap 초기화
             while (employeeResultSet.next()) {
                 int EMPNO = employeeResultSet.getInt("EMPNO");

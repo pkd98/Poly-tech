@@ -20,16 +20,16 @@ END;
 -- 2
 DECLARE
 	V_XX NUMBER(4) := 10; 
-	V_YY BOOLEAN;  -- SQL¿¡¼­ BOOLEANÀº T, F, NULL °ªÀ» °¡Áø´Ù.
+	V_YY BOOLEAN;  -- SQLï¿½ï¿½ï¿½ï¿½ BOOLEANï¿½ï¿½ T, F, NULL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	V_TAX_RATE CONSTANT NUMBER(5,3) := 0.054;
 	V_SAL NUMBER(4) := 9999; 
 BEGIN
     IF V_YY IS NULL THEN
         DBMS_OUTPUT.PUT_LINE('SQL operator');
     END IF;
-	V_YY := ((V_XX - 1) ** 3 > 500) AND (V_SAL > 7000); -- »ê¼ú ¿¬»êÀÚ & ºñ±³ ¿¬»êÀÚ & ³í¸® ¿¬»êÀÚ
+	V_YY := ((V_XX - 1) ** 3 > 500) AND (V_SAL > 7000); -- ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DBMS_OUTPUT.PUT_LINE(case when V_YY then 'TRUE' else 'FALSE' end); -- case & decode
-	IF (V_SAL * V_TAX_RATE) BETWEEN 500 AND 1000 THEN -- SQL ¿¬»êÀÚ
+	IF (V_SAL * V_TAX_RATE) BETWEEN 500 AND 1000 THEN -- SQL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DBMS_OUTPUT.PUT_LINE('High pay'); 
 	END IF; 
 END;
@@ -37,17 +37,17 @@ END;
 
 -- 3
 DECLARE
-	V_EMPNO NUMBER(4) := 8888;                -- º¯¼ö¼±¾ð ¹× ÃÊ±âÈ­
+	V_EMPNO NUMBER(4) := 8888;                -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	V_DEPTNO NUMBER(2);  
-	V_ENAME VARCHAR2(10) := 'XMAN';           -- º¯¼ö¼±¾ð ¹× ÃÊ±âÈ­
+	V_ENAME VARCHAR2(10) := 'XMAN';           -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	V_JOB VARCHAR2(9);
 	V_SAL NUMBER(7,2); 
 BEGIN 
-	V_DEPTNO := 20;                           -- º¯¼ö¿¡ °ª ´ëÀÔ
+	V_DEPTNO := 20;                           -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	IF V_JOB IS NULL THEN
-		V_JOB := '½ÅÀÔ';
+		V_JOB := 'ï¿½ï¿½ï¿½ï¿½';
 	END IF;
-	IF V_JOB = '½ÅÀÔ' THEN                    -- TRUE, FALSE, NULL
+	IF V_JOB = 'ï¿½ï¿½ï¿½ï¿½' THEN                    -- TRUE, FALSE, NULL
 		V_SAL := 2000;
 	ELSIF V_JOB IN ('MANAGER','ANALYST') THEN -- ELSEIF(X)
 		V_SAL := 3500;
@@ -63,10 +63,10 @@ END;
 SELECT * FROM EMP WHERE EMPNO = 8888;
 
 -- 3-1
-desc dbms_output; -- Å¬·¡½º ³»¿¡ Æ÷ÇÔµÈ ¸Þ¼­µå µéÀÌ Ç¥±âµÈ´Ù. public method¸¸.
+desc dbms_output; -- Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½È´ï¿½. public methodï¿½ï¿½.
 
--- ¹Ýº¹¹®
--- 1. ±âº» LOOP
+-- ï¿½Ýºï¿½ï¿½ï¿½
+-- 1. ï¿½âº» LOOP
 SET SERVEROUTPUT ON
 DECLARE
     LOOP_INDEX NUMBER(4) := 1;
@@ -98,9 +98,9 @@ END;
 
 -- 3. WHILE LOOP
 DECLARE 
-	-- V_INDEX NUMBER(3) := 0; -- loop È½¼ö Ã¼Å©
+	-- V_INDEX NUMBER(3) := 0; -- loop È½ï¿½ï¿½ Ã¼Å©
 	-- V_INDEX NUMBER(3); -- NULL
-	V_INDEX NUMBER(3) := 30; -- loop È½¼ö Ã¼Å©
+	V_INDEX NUMBER(3) := 30; -- loop È½ï¿½ï¿½ Ã¼Å©
 BEGIN
 	WHILE(V_INDEX >= 0 )
 	LOOP
