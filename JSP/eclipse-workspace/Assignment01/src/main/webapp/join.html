@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Member Registration Form</title>
+</head>
+<body>
+  <h2>Member Registration</h2>
+  <form action="JoinOk" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required><br><br>
+
+    <label for="pw">Password:</label>
+    <input type="password" id="pw" name="pw" required><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">-- Select Gender --</option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
