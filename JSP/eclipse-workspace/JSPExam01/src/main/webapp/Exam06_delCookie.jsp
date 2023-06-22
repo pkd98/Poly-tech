@@ -10,17 +10,19 @@
 
 	<%
 	Cookie[] cookies = request.getCookies();
-
-	if (cookies != null) {
-	    for (Cookie cookie : cookies) {
-	        cookie.setMaxAge(0); // 쿠키 수명을 0으로 설정하여 삭제
-	        response.addCookie(cookie);
-	    }
-	}
 	
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("name")) {
+                cookie.setMaxAge(0); // 쿠키 수명을 0으로 설정하여 삭제
+                response.addCookie(cookie);
+                break;
+            }
+        }
+    }
 	%>
 
-	<a href="Exam06_getCookie.jsp">쿠키 보기 </a>
+    <a href="Exam06_getCookie.jsp">쿠키 보기 </a>
 
 </body>
 </html>
