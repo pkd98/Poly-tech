@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.catalina.Session;
+import com.pkd.member.JdbcMemberRepository;
+import com.pkd.member.MemberDTO;
+import com.pkd.member.MemberRepository;
 
 /**
  * Servlet implementation class LoginOk
@@ -20,7 +23,7 @@ import org.apache.catalina.Session;
 @WebServlet("/LoginOk")
 public class LoginOk extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private String id, pw;
+    private String id, pw, name;
     private String query;
     private Connection conn;
     private PreparedStatement pstmt;
@@ -53,51 +56,30 @@ public class LoginOk extends HttpServlet {
 
     private void actionDo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
+
         request.setCharacterEncoding("UTF-8");
         id = request.getParameter("id");
         pw = request.getParameter("pw");
-        ResultSet rs = null;
+        MemberRepository memberRepository = new JdbcMemberRepository();
 
-        // 해당 회원 조회
-        query = "select name from member where id = ? and pw = ?";
+        MemberDTO member = memberRepository.findByMember(id);
 
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/da2308", "scott",
-                    "tiger");
-            pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, id);
-            pstmt.setString(2, pw);
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
+        // 로그인 실패
+        if (member.getId() == null) {
+            System.out.println("login fail");
+            response.sendRedirect("login.html");
+        } else {
+            // 로그인 성공
+            if (member.getPw().equals(pw)) {
                 System.out.println("login success");
-                String name = rs.getString("name");
+                name = member.getName();
+
                 // 로그인 세션 생성
                 HttpSession session = request.getSession(true);
                 session.setAttribute("id", id);
                 session.setAttribute("name", name);
-
+                session.setAttribute("email", member.getEmail());
                 response.sendRedirect("loginResult.jsp");
-            } else {
-                System.out.println("login fail");
-                response.sendRedirect("login.html");
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            response.sendRedirect("join.html");
-        } finally {
-            try {
-                if (pstmt != null)
-                    pstmt.close();
-                if (conn != null)
-                    conn.close();
-            } catch (Exception e) {
-                // TODO: handle exception
-                e.printStackTrace();
             }
         }
     }

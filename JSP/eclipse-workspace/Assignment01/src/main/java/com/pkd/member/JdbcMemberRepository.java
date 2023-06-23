@@ -146,7 +146,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public MemberDTO findByMember(String id) {
-        MemberDTO member = null;
+        MemberDTO member = new MemberDTO();
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -159,10 +159,13 @@ public class JdbcMemberRepository implements MemberRepository {
             pstmt = conn.prepareStatement(query);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
-
-            member = new MemberDTO(rs.getString("name"), rs.getString("id"), rs.getString("pw"),
-                    rs.getString("email"), rs.getString("gender"));
-
+            while (rs.next()) {
+                member.setId(rs.getString("id"));
+                member.setName(rs.getString("name"));
+                member.setEmail(rs.getString("email"));
+                member.setGender(rs.getString("gender"));
+                member.setPw(rs.getString("pw"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

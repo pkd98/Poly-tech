@@ -16,6 +16,8 @@ public class MemberDTO {
         this.gender = gender;
     }
 
+    public MemberDTO() {}
+
     public String getName() {
         return name;
     }
