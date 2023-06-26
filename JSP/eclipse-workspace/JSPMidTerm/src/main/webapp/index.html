@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>회원 인증 프로그래밍</h1>
+            <h3>박경덕</h3>
+            <div class="button-group">
+                <button class="user-button" onclick="goToUserIndex()">User</button>
+                <button class="admin-button" onclick="goToAdmin()">Admin</button>
+            </div>
+        </div>
+
+        <script>
+            function goToUserIndex() {
+                window.location.href = "./user/index.jsp";
+            }
+
+            function goToAdmin() {
+                window.location.href = "./login.jsp";
+            }
+        </script>
+    </body>
+</html>

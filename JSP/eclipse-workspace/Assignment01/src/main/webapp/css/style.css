@@ -1,0 +1,42 @@
+body {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-button {
+    background-color: #4caf50;
+}
+
+.admin-button {
+    background-color: #f44336;
+    margin-left: 10px;
+}
+
+.user-button:hover,
+.admin-button:hover {
+    opacity: 0.8;
+}
