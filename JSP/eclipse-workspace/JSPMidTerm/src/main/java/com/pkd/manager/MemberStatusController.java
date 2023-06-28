@@ -31,7 +31,8 @@ public class MemberStatusController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	    int state = memberRepository.updateByState(request.getParameter("id"), Integer.parseInt(request.getParameter("state")));
-        if (state == 1) {
+        
+	    if (state == 1) {
             System.out.println("update 성공");
         } else {
             System.out.println("update 실패");

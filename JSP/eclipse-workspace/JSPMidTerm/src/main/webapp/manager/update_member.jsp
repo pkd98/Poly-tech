@@ -76,7 +76,7 @@ form {
 					name="name" value="<%=dto.getName()%>" />
 			</div>
 			<div class="input-group">
-				<label>휴대전화</label> <input type="text" name="phone"
+				<label>휴대전화 : 010-XXXX-XXXX</label> <input type="hidden" name="phone"
 					value="<%=dto.getPhone()%>" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" />
 			</div>
 			<div class="input-group">
