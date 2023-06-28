@@ -35,22 +35,8 @@ public class Controller extends HttpServlet {
 	    System.out.println("conPath: " + conPath);
 	    System.out.println("command: " + command);
 	    
-	    switch(command) {
-	        case "command1.do":
-	            System.out.println("/command1.do");
-	            System.out.println("--------------");
-	            break;
-	           
-           case "command2.do":
-               System.out.println("/command1.do");
-               System.out.println("--------------");
-                break;
-                
-           case "command3.do":
-               System.out.println("/command1.do");
-               System.out.println("--------------");
-               break;
-	    }
+	    frontController(command);
+	    
 	}
 
 	/**
@@ -59,6 +45,26 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	void frontController(String command) {
+	    
+	       switch(command) {
+	            case "command1.do":
+	                System.out.println("/command1.do");
+	                System.out.println("--------------");
+	                break;
+	               
+	           case "command2.do":
+	               System.out.println("/command1.do");
+	               System.out.println("--------------");
+	                break;
+	                
+	           case "command3.do":
+	               System.out.println("/command1.do");
+	               System.out.println("--------------");
+	               break;
+	        }
 	}
 
 }
