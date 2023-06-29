@@ -45,7 +45,7 @@
 					</div>
 				</div>
 				<div class="mt-3 text-center">
-					<a href="edit.jsp?id=<%=board.getId()%>&title=<%=board.getTitle()%>&content=<%=board.getContent()%>" class="btn btn-warning">수정</a>
+					<a href="goToEdit.do?id=<%=board.getId()%>&title=<%=board.getTitle()%>&content=<%=board.getContent()%>" class="btn btn-warning">수정</a>
 					<a href="delete.do?id=<%=board.getId()%>" class="btn btn-danger">삭제</a>
 					<a href="reply.jsp?id=<%=board.getId()%>&depth=<%=board.getDepth() %>" class="btn btn-info">답글</a>
 					<a href="main.do" class="btn btn-secondary">뒤로가기</a>

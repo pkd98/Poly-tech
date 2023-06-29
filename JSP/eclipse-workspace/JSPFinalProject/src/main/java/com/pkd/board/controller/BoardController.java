@@ -109,6 +109,18 @@ public class BoardController extends HttpServlet {
                 request.setAttribute("board", board);
                 break;
 
+            // 수정 페이지 이동
+            case "/goToEdit.do":
+                forwardState = true;
+                goToPage = "/edit.jsp";
+                System.out.println("수정 페이지 보기");
+                board = new Board();
+                board.setId(Integer.parseInt(request.getParameter("id")));
+                board.setTitle(request.getParameter("title"));
+                board.setContent(request.getParameter("content"));
+                request.setAttribute("board", board);
+                break;
+
             // 글 수정
             case "/edit.do":
                 forwardState = false;
@@ -137,7 +149,7 @@ public class BoardController extends HttpServlet {
                 System.out.println("잘못된 접근");
                 break;
         }
-        
+
         if (forwardState) {
             RequestDispatcher mainDispatcher = request.getRequestDispatcher(goToPage);
             mainDispatcher.forward(request, response);

@@ -12,15 +12,9 @@
 	rel="stylesheet">
 </head>
 <body>
+
 	<%
-	int id = Integer.parseInt(request.getParameter("id"));
-	String title = request.getParameter("title");
-	String content = (String) request.getParameter("content");
-	Board board = new Board();
-	board.setId(id);
-	board.setTitle(title);
-	board.setContent(content);
-	out.println(board.getId());
+	Board board = (Board) request.getAttribute("board");
 	%>
 	<div class="container mt-5">
 		<div class="row">

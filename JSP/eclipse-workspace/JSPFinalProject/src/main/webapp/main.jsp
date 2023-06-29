@@ -55,16 +55,10 @@ int totalPages = (int) Math.ceil((double) boardList.size() / perPage);
                     <td><%=board.getName()%></td>
 					<td>
 					    <a href="detail.do?id=<%=board.getId()%>">
-					        <% StringBuilder sb = new StringBuilder();
-					           for (int j = 0; j < board.getDepth(); j++) {
-					               sb.append("RE:");
-					           }
-					           sb.append(" " + board.getTitle());
-					           String formattedTitle = sb.toString();
-					           if (formattedTitle.startsWith("RE:")) { %> 
-					               <span style="color: red;"><%=formattedTitle%></span>
+					        <% if (board.getTitle().startsWith("RE:")) { %> 
+					               <span style="color: red;"><%=board.getTitle()%></span>
 					           <% } else { %>
-					               <%=formattedTitle%>
+					               <%=board.getTitle()%>
 					           <% } %>
 					    </a>
 					</td>

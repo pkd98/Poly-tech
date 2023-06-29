@@ -24,6 +24,14 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public int write(Board board) {
+        StringBuilder sb = new StringBuilder();
+        
+        for (int j = 0; j < board.getDepth(); j++) {
+            sb.append("RE:");
+        }
+        sb.append(" " + board.getTitle());
+        board.setTitle(sb.toString());
+        
         return boardRepository.insertBoard(board);
     }
 
