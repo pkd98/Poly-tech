@@ -15,6 +15,7 @@ List<Member> memberList = (List<Member>) request.getAttribute("memberList");
 for(Member member : memberList) {
     out.println(member);
 }
+memberList.clear();
 %>
 
 </body>

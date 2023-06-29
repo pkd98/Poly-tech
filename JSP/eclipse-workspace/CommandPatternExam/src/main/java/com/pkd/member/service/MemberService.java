@@ -7,4 +7,5 @@ import com.pkd.member.domain.Member;
 
 public interface MemberService {
     List<Member> findAllMember(HttpServletRequest request, HttpServletResponse response);
+    
 }
